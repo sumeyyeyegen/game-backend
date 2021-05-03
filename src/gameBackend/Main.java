@@ -20,13 +20,24 @@ public class Main {
 		game1.setReleaseYear("2007");
 		game1.setStock("4");
 		
+		GameManager gameManager = new GameManager();
+		gameManager.add(game1);
+		gameManager.update(game1);
+		gameManager.delete(game1);
+		
 		Campaign campaign1 = new Campaign();
 		campaign1.setId(1);
 		campaign1.setDiscountRate(10);
 		campaign1.setCampaignDays(3);
 		
+		CampaignManager campaignManager = new CampaignManager();
+		campaignManager.add(campaign1, game1);
+		campaignManager.delete(campaign1, game1);
+		campaignManager.update(campaign1, game1);
+		
 		SaleManager saleManager = new SaleManager();
 		saleManager.sell(user1,game1,campaign1);
+		
 	}
 
 }
